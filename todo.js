@@ -95,7 +95,7 @@ function displayTasks() {
             taskItem.style.backgroundColor = '#85e69cff';
             completedTasksCount++;
         } else {
-            taskItem.style.backgroundColor = '#f8d7da';
+            taskItem.style.backgroundColor = '#d1cdcdff';
             activeTasksCount++;
         }
         listTasks.appendChild(taskItem);
