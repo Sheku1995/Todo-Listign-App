@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="todo.css">
+    <title>Task Flow App</title>
+</head>
+<body>
+   <nav id="nav-bar">
+    <img id="nav-icon" src="/images/nav icon.png" alt="Icon">
+    <button id="nav-start-button" onclick="gettingStarted()">Let's get started <i class="fa-solid fa-arrow-right"></i></button>
+   </nav>
+   <main>
+    <div id="landing-page" >
+    <div id="landing-container" data-aos="fade-up" data-aos-duration="1000">
+        <h1>Organize your life with Task Flow App</h1>
+        <h2 id="landing-h2">One task at a time</h2>
+        <p class="para">This is a task flow app that helps you manage your tasks and stay organized.</p>
+        <p class="para">Task Flow App is a simple and easy to use task management app that helps you manage your tasks and stay organized.</p>
+        <button id="landing-start-button"  onclick="gettingStarted()">Get started Free <i class="fa-solid fa-arrow-right"></i></button>
+        <div id="card-div" >
+            <div id="card1" class="card" data-aos="fade-up" data-aos-duration="1000">
+            <h3> <i class="fa-solid fa-add cards-icon"></i></h3>  
+            <h3 class="cards-header">Easy Task Creation</h3>
+            <p>Add tasks quickly with our intuitive interface. Set priorities, due dates, and categories effortlessly.</p>
+            </div>
+            <div id="card2" class="card" data-aos="fade-up" data-aos-duration="1000">
+                <h3> <i class="fa-solid fa-filter cards-icon" ></i></h3>
+                <h3 class="cards-header">Smart Filtering</h3>
+                <p>Filter tasks by status, priority, or category. Find exactly what you need when you need it.</p>
+            </div>
+            <div id="card3" class="card" data-aos="fade-up" data-aos-duration="1000">
+                <h3> <i class="fa-solid fa-check cards-icon"></i></h3>
+                <h3 class="cards-header">Task Completion</h3>
+                <p>Mark tasks as complete with a single click. Stay motivated by tracking your progress.</p>
+            </div>
+        </div>
+        <div id="landing-footer" data-aos="fade-up" data-aos-duration="1000">
+            <h3 id="landing-h3">Join the Task Flow App community today!</h3>
+            <p class="para">Experience the power of organized task management. Join other users now and take control of your tasks.</p>
+            <button id="footer-signup-button" onclick="gettingStarted()">Start Your Journey <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </div>
+    </div>
+    <div id="todo-container"  class="hide">
+        <div id="todo-nav-bar"> 
+            <P id="back-text" onclick="goBack()"><i class="fa-solid fa-arrow-left"> Back</i></P>
+            <img id="todo-nav-icon" src="/images/nav icon.png" alt="Nav-icon">
+            <button id="add-task-btn" onclick="openTaskForm()">+ Add Task</button>
+        </div>
+        <div></div>
+        <div id="tasks-dashboard-container">
+            <div id="total-tasks-card" class="dashboard-cards">
+                <p><i class="fa fa-check-double dashboard-icons"></i>Total Tasks</p>
+                <h2 id="total-tasks-count" class="task-counter">0</h2>
+            </div>
+            <div id="completed-task-card" class="dashboard-cards">
+                <p><i class="fa fa-check-circle dashboard-icons"></i>Completed</p>
+                <h2 id="completed-tasks-count" class="task-counter">0</h2>
+            </div>
+            <div id="active-task-card" class="dashboard-cards">
+                <p><i class="fa fa-add dashboard-icons"></i>Active Tasks</p>
+                <h2 id="active-tasks-count" class="task-counter">0</h2>
+            </div>
+        </div>
+        <div id="search-container">
+           <input  type="text" id="search-input" placeholder="Search tasks...">
+            <select name="tasks-category" id="tasks-category">
+                <option value="all">All Tasks</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+        </div>
+        <div id="display-tasks">
+
+        </div>
+    </div>
+    <dialog>
+        <button id="close-dialog-btn" onclick="closeTaskForm()"><i class="fa-solid fa-xmark"></i></button>
+        <div id="add-task-container">
+            <h2>Add New Task</h2>
+            <form id="add-task-form">
+                <label for="task-title">Task Title:</label>
+                <input type="text" id="task-title">
+                <label for="task-description">Description:</label>
+                <textarea id="task-description"></textarea>
+                <label for="task-priority">Priority:</label>
+                <select id="task-priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <button type="button" id="save-task-btn" onclick="addTask()">Save Task</button>
+            </form>
+        </div>
+    </dialog>
+    <footer>
+        <p>2025 &copy Sheku Alpha Kamara</p>
+    </footer>
+   </main>
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-D1GzH6Tk8hrdcuh9wBvPpQ9I+eHc4DqZULhpttG4aPHhnU9+pB9O4GnP79WgMG1P"
+crossorigin="anonymous"
+></script>
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+   <script>
+    AOS.init();
+   </script>
+   <script src="todo.js"></script>
+</body>
+</html>
